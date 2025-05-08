@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Speed Typer - Test Your Typing Skills</title>
+   <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Typing Test </h1>
+    
+    <div class="container">
+        <div class="header">
+            <div class="wpm">
+                <p>WPM: <span class="wpm-value">0</span></p>
+            </div>
+            <div class="timer">
+                <p>Time Left: <span class="timer-value">60</span>s</p>
+            </div>
+            <div class="accuracy">
+                <p>Accuracy: <span class="accuracy-value">0</span>%</p>
+            </div>
+        </div>
+        
+        <div class="typing-text">
+            <p></p>
+        </div>
+        
+        <input type="text" class="input-field">
+        
+        <div class="content-buttons">
+            <div class="settings">
+                <div>
+                    <label for="time">Time:</label>
+                    <select id="time">
+                        <option value="30">30s</option>
+                        <option value="60" selected>60s</option>
+                        <option value="120">2m</option>
+                        <option value="300">5m</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="difficulty">Difficulty:</label>
+                    <select id="difficulty">
+                        <option value="easy">Easy</option>
+                        <option value="medium" selected>Medium</option>
+                        <option value="hard">Hard</option>
+                    </select>
+                </div>
+            </div>
+            <button class="restart">Restart Test</button>
+        </div>
+    </div>
+    
+    <div class="container result-container">
+        <ul class="result-details">
+            <li>
+                <p>WPM</p>
+                <span class="wpm-value">0</span>
+            </li>
+            <li>
+                <p>Accuracy</p>
+                <span class="accuracy-value">0</span>%
+            </li>
+            <li>
+                <p>Characters</p>
+                <span class="characters">0</span>
+            </li>
+            <li>
+                <p>Errors</p>
+                <span class="errors">0</span>
+            </li>
+        </ul>
+    </div>
+    
+   <script src="script.js"></script>
+</body>
+</html>

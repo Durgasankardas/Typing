@@ -1,0 +1,229 @@
+:root {
+    --primary: #3498db;
+    --secondary: #2ecc71;
+    --dark: #34495e;
+    --light: #ecf0f1;
+    --error: #e74c3c;
+    --correct: #2ecc71;
+    --neutral: #95a5a6;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--light);
+    color: var(--dark);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.container {
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 800px;
+    padding: 25px;
+    margin-bottom: 20px;
+}
+
+h1 {
+    text-align: center;
+    color: var(--primary);
+    margin-bottom: 20px;
+    font-size: 2.5rem;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.timer, .wpm, .accuracy {
+    font-size: 1.2rem;
+    color: var(--dark);
+    padding: 10px 15px;
+    background-color: var(--light);
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.wpm-value, .accuracy-value, .timer-value {
+    color: var(--primary);
+}
+
+.typing-text {
+    background-color: var(--light);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    height: 300px;
+    overflow-y: auto;
+    position: relative;
+    line-height: 1.8;
+    font-size: 1.2rem;
+}
+
+.typing-text p {
+    color: var(--neutral);
+    text-align: left;
+    font-size: 1.2rem;
+    word-break: break-all;
+}
+
+.typing-text p span {
+    position: relative;
+}
+
+.typing-text p span.correct {
+    color: var(--correct);
+}
+
+.typing-text p span.incorrect {
+    color: var(--error);
+    background-color: rgba(231, 76, 60, 0.2);
+    border-radius: 4px;
+}
+
+.typing-text p span.active {
+    color: var(--primary);
+}
+
+.typing-text p span.active::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 2px;
+    width: 100%;
+    background-color: var(--primary);
+    animation: blink 1s ease-in-out infinite;
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0;
+    }
+}
+
+.input-field {
+    opacity: 0;
+    position: absolute;
+    z-index: -999;
+}
+
+.content-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 20px;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.content-buttons button {
+    padding: 10px 20px;
+    color: white;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1rem;
+    border-radius: 5px;
+    background-color: var(--primary);
+    transition: all 0.3s ease;
+}
+
+.content-buttons button.restart {
+    background-color: var(--secondary);
+}
+
+.content-buttons button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.content-buttons button:active {
+    transform: scale(0.95);
+}
+
+.settings {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.settings select, .settings input {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.settings label {
+    font-weight: bold;
+    margin-right: 5px;
+}
+
+.result-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-top: 20px;
+    gap: 15px;
+}
+
+.result-details li {
+    display: flex;
+    height: 100px;
+    flex: 1;
+    min-width: 150px;
+    list-style: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--light);
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.result-details li p {
+    font-size: 1.1rem;
+    margin-bottom: 10px;
+}
+
+.result-details li span {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: var(--primary);
+}
+
+@media screen and (max-width: 600px) {
+    .header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .result-details li {
+        min-width: 100%;
+    }
+    
+    .settings {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
